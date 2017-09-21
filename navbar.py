@@ -21,6 +21,9 @@ class Navbar(QtWidgets.QWidget):
         self.l_incr_parm.setPlaceholderText('24')
         self.l_incr_parm.setGeometry(QtCore.QRect(0, 0, 10, 20))
         self.s_ff_btn.clicked.connect(self.nav_sff)
+        self.s_rew_btn.clicked.connect(self.nav_srw)
+        self.l_ff_btn.clicked.connect(self.nav_lff)
+        self.l_rew_btn.clicked.connect(self.nav_lrw)
 
         layout = QtWidgets.QHBoxLayout()
         layout.addStretch(1)
@@ -47,6 +50,18 @@ class Navbar(QtWidgets.QWidget):
     def nav_sff(self):
         frame_incr = int(self.s_incr_parm.text())
         self.navigate(frame_incr, 'f')
+
+    def nav_srw(self):
+        frame_incr = int(self.s_incr_parm.text())
+        self.navigate(frame_incr, 'r')
+
+    def nav_lff(self):
+        frame_incr = int(self.l_incr_parm.text())
+        self.navigate(frame_incr, 'f')
+
+    def nav_lrw(self):
+        frame_incr = int(self.l_incr_parm.text())
+        self.navigate(frame_incr, 'r')
 
 def createInterface():
     root_widget = Navbar() 
